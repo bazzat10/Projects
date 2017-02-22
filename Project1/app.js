@@ -35,7 +35,7 @@ var selectedBox = function (row, column){
     toggle = 1; // assign to player two
   } else {
     boardGame[row][column] = 3;
-    toggle = 0; // assigne to player one
+    toggle = 0; // assign to player one
   };
 
 };
@@ -222,7 +222,7 @@ document.querySelector('#row1-column1').addEventListener('click', function(){
   selectedBox(1,1);
   checkIfPlayerOneIsWinner();
 
-};
+  };
 });
 
 document.querySelector('#row1-column2').addEventListener('click', function(){
@@ -290,3 +290,7 @@ document.querySelector('#row2-column2').addEventListener('click', function(){
       checkIfPlayerOneIsWinner();
   };
 });
+
+document.querySelector('.start-btn').addEventListener('click', function(){
+  document.querySelector('.start-page').remove();
+})
