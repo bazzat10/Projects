@@ -61,5 +61,13 @@ h1, h3 {
   width: 150px;
   background-color: 'red';
   font-weight: bold;
-  /*display: inline;*/
+  display:block;
+  text-align: center;
+  position:relative;
+  left:42.5%;
+}
+
+footer{
+  text-align: center;
+  margin-top: 20px;
 }

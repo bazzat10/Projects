@@ -1,9 +1,6 @@
 console.log('JAVASCRIPT WORKING FOR PR0JECT 1 - TIC TAC TOE');
 var boardGame = [['','',''],['','',''],['','','']];
 
-var playerOne;
-var playerTwo;
-
 var toggle = 0; //assign value for toggling;
 
 var combineAllArrays = [];
@@ -32,42 +29,6 @@ var creditsTimer = function(){
 };
 
 
-// var credit0 = function(){
-//   document.querySelector('body p').innerHTML = 'SPECIAL THANKS TO....';
-//   setTimeout(credit1,5000);
-//
-// };
-//
-// var credit1 = function(){
-//   document.querySelector('body p').innerHTML = 'DANIEL TSUI (DT)';
-//   setTimeout(credit2,5000);
-// };
-//
-// var credit2 = function(){
-//   document.querySelector('body p').innerHTML = 'KASUN MALDENI';
-//   setTimeout(credit3,5000);
-// };
-//
-// var credit3 = function(){
-//   document.querySelector('body p').innerHTML = '#FULLSLACK TEAM!';
-//   setTimeout(credit4,5000);
-// };
-//
-// var credit4 = function(){
-//   document.querySelector('body p').innerHTML = 'AND....';
-//   setTimeout(credit5,5000);
-// };
-//
-// var credit5 = function(){
-//   document.querySelector('body p').innerHTML = 'GOOGLE!';
-//   setTimeout(credit6,5000);
-// };
-//
-// var credit6 = function(){
-//   document.querySelector('body p').innerHTML = 'barry™ PRODUCTION';
-// };
-
-
 var selectedBox = function (row, column){
   if(toggle === 0){ // used to toggle between players
     boardGame[row][column] = 2;
@@ -79,8 +40,8 @@ var selectedBox = function (row, column){
 
 };
 
-var endOfGame = function(){
-  document.querySelector("body div").remove(); // deletes page
+var endOfGame = function(){ // deletes page and creates new page
+  document.querySelector("body div").remove();
   var newDiv = document.createElement('DIV');
   var newH1 = document.createElement('H1');
   var newButton = document.createElement('BUTTON');
@@ -94,7 +55,7 @@ var endOfGame = function(){
   document.querySelector('body button').innerHTML = 'PLAY AGAIN';
   document.querySelector('body button').className = 'play-again-btn';
 
-  setTimeout(creditsTimer,5000);
+  setTimeout(creditsTimer, 500);
 
   document.querySelector('.play-again-btn').addEventListener('click', function(){
     location.reload();
@@ -164,12 +125,11 @@ var checkingIfTieGame = function(){ // checking if tie game
 
   for(var counter = 0; counter<combineAllArrays.length; counter++){
     if(combineAllArrays[counter] === ''){
-      return;
+      return; // exits function if there is an empty array.
     };
   };
 
-  document.querySelector("body h1").innerHTML = "TIE GAME";
-
+  document.querySelector("body h1").innerHTML = "TIE GAME"; // will display if all arrays are filled.
   setTimeout(endOfGame,1000);
 };
 
@@ -205,7 +165,6 @@ document.querySelector('#row0-column1').addEventListener('click', function(event
     };
 
     selectedBox(0,1);
-    // checkWinner();
     checkIfPlayerOneIsWinner();
   };
 
@@ -225,7 +184,6 @@ document.querySelector('#row0-column2').addEventListener('click', function(){
   };
 
   selectedBox(0,2)
-  // checkWinner();
   checkIfPlayerOneIsWinner();
 });
 
@@ -245,7 +203,6 @@ document.querySelector('#row1-column0').addEventListener('click', function(){
       };
 
       selectedBox(1,0);
-      // checkWinner();
       checkIfPlayerOneIsWinner();
   };
 });
@@ -263,7 +220,6 @@ document.querySelector('#row1-column1').addEventListener('click', function(){
       };
 
   selectedBox(1,1);
-  // checkWinner();
   checkIfPlayerOneIsWinner();
 
 };
@@ -281,7 +237,6 @@ document.querySelector('#row1-column2').addEventListener('click', function(){
       };
 
       selectedBox(1,2);
-      // checkWinner();
       checkIfPlayerOneIsWinner();
   };
 });
@@ -300,7 +255,6 @@ document.querySelector('#row2-column0').addEventListener('click', function(){
       };
 
       selectedBox(2,0);
-      // checkWinner();
       checkIfPlayerOneIsWinner();
   };
 });
@@ -317,7 +271,6 @@ document.querySelector('#row2-column1').addEventListener('click', function(){
       };
 
       selectedBox(2,1);
-      // checkWinner();
       checkIfPlayerOneIsWinner();
   };
 });
@@ -334,7 +287,6 @@ document.querySelector('#row2-column2').addEventListener('click', function(){
       };
 
       selectedBox(2,2);
-
       checkIfPlayerOneIsWinner();
   };
 });
