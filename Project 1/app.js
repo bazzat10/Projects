@@ -8,55 +8,90 @@ var toggle = 0; //assign value for toggling;
 
 var combineAllArrays = [];
 
+var credit0 = function(){
+  document.querySelector('body p').innerHTML = 'SPECIAL THANKS TO....';
+  setTimeout(credit1,5000);
+
+};
+
+var credit1 = function(){
+  document.querySelector('body p').innerHTML = 'DANIEL TSU (DT)';
+  setTimeout(credit2,5000);
+};
+
+var credit2 = function(){
+  document.querySelector('body p').innerHTML = 'KASUN MALDENI';
+  setTimeout(credit3,5000);
+};
+
+var credit3 = function(){
+  document.querySelector('body p').innerHTML = '#FULLSLACK TEAM!';
+  setTimeout(credit4,5000);
+};
+
+var credit4 = function(){
+  document.querySelector('body p').innerHTML = 'AND....';
+  setTimeout(credit5,5000);
+};
+
+var credit5 = function(){
+  document.querySelector('body p').innerHTML = 'GOOGLE!';
+  setTimeout(credit6,5000);
+};
+
+var credit6 = function(){
+  document.querySelector('body p').innerHTML = 'barry™ PRODUCTION';
+};
 
 
 var selectedBox = function (row, column){
   if(toggle === 0){ // used to toggle between players
     boardGame[row][column] = 2;
-    toggle = 1;
+    toggle = 1; // assign to player two
   } else {
     boardGame[row][column] = 3;
-    toggle = 0;
+    toggle = 0; // assigne to player one
   };
 
 };
-
-// var announceWinner = function(){
-//   var newH1Element = document.createElement('h2');
-//   document.querySelector("body").appendChild(newH1Element);
-// };
-
-
 
 var endOfGame = function(){
   document.querySelector("body div").remove(); // deletes page
   var newDiv = document.createElement('DIV');
-  var newDivH1 = document.createElement('H1');
-  var newDivButton = document.createElement('BUTTON');
-  document.querySelector("body").appendChild(newDiv);
+  var newH1 = document.createElement('H1');
+  var newButton = document.createElement('BUTTON');
+  var newParagraph = document.createElement('P');
+  document.querySelector('body').appendChild(newDiv);
   document.querySelector('body div').className = 'end-game';
-  document.querySelector("body div").appendChild(newDivH1);
-  document.querySelector("body h1").innerHTML = "GAME OVER"
-  document.querySelector("body div").appendChild(newDivButton);
+  document.querySelector('body div').appendChild(newH1);
+  document.querySelector('body h1').innerHTML = "GAME OVER"
+  document.querySelector('body div').appendChild(newButton);
+  document.querySelector('body div').appendChild(newParagraph); // create new paragraphs
   document.querySelector('body button').innerHTML = 'PLAY AGAIN';
   document.querySelector('body button').className = 'play-again-btn'
+
+  setTimeout(credit0,5000);
 
   document.querySelector('.play-again-btn').addEventListener('click', function(){
     location.reload();
   })
+
+
 };
 
-var winner = function(winningPlayer){
+var winner = function(winningPlayer){ // announce Winner
   if(winningPlayer === 0){
-    // announceWinner();
+
     document.querySelector("body h1").innerHTML = "PLAYER ONE WINS"
-    setTimeout(endOfGame,10000);
+    setTimeout(endOfGame,500);
+
   };
 
   if(winningPlayer === 1){
-    endOfGame();
+
     document.querySelector("body h1").innerHTML = "PLAYER TWO WINS";
-    setTimeout(endOfGame,10000);
+    setTimeout(endOfGame,500);
+
   };
 
 };
@@ -74,6 +109,8 @@ var checkIfPlayerOneIsWinner = function (){
       boardGame[2][0] + boardGame[1][1] + boardGame[0][2] === 6 ){
       winner(0);
       };
+
+  checkIfPlayerTwoIsWinner();
 };
 
 var checkIfPlayerTwoIsWinner = function (){
@@ -87,10 +124,11 @@ var checkIfPlayerTwoIsWinner = function (){
       boardGame[2][0] + boardGame[1][1] + boardGame[0][2] === 9 ){
       winner(1);
       };
+
+  checkingIfTieGame();
 };
 
-var checkingIfTieGame = function(){
-  console.log('checking if tie game function ');
+var checkingIfTieGame = function(){ // checking if tie game
   var array1 = boardGame[0];
   var array2 = boardGame[1];
   var array3 = boardGame[2]
@@ -104,58 +142,74 @@ var checkingIfTieGame = function(){
   };
 
   document.querySelector("body h1").innerHTML = "TIE GAME";
-  setTimeout(endOfGame,10000);
+  setTimeout(endOfGame,500);
 };
 
-var checkWinner = function(){
-  checkIfPlayerOneIsWinner();
-  checkIfPlayerTwoIsWinner();
-  checkingIfTieGame();
-};
+// var checkWinner = function(){
+//   checkingIfTieGame();
+//   checkIfPlayerOneIsWinner();
+//   checkIfPlayerTwoIsWinner();
+//
+// };
 
 // Event Listener - row 0 ;
 
+
+  // $('#row0-column0').on('click',function(){
 document.querySelector("#row0-column0").addEventListener('click', function(){
-  document.querySelector("#row0-column0").disabled = true;
-  if(toggle === 0){
-      document.querySelector('#row0-column0').src = 'Images/mario.gif';
+
+  if(document.querySelector('#row0-column0').src === ''){
+      if(toggle === 0){
+          document.querySelector('#row0-column0').src = 'Images/mario.gif';
+      };
+
+      if(toggle ===  1){
+        document.querySelector('#row0-column0').src = 'Images/luigi.gif';
+      };
+
+      selectedBox(0,0);
+      // checkWinner();
+      checkIfPlayerOneIsWinner();
+
   };
 
-  if(toggle ===  1){
-    document.querySelector('#row0-column0').src = 'Images/luigi.gif';
-  };
-
-  selectedBox(0,0);
-  checkWinner();
 
 });
 
-document.querySelector('#row0-column1').addEventListener('click', function(){
-  document.querySelector('#row0-column1').disabled = true;
-  if(toggle === 0){
-    document.querySelector('#row0-column1').src = 'Images/mario.gif';
+document.querySelector('#row0-column1').addEventListener('click', function(event){
+
+  if(document.querySelector('#row0-column1').src === ''){
+    if(toggle === 0){
+      document.querySelector('#row0-column1').src = 'Images/mario.gif';
+    };
+
+    if(toggle ===  1){
+      document.querySelector('#row0-column1').src = 'Images/luigi.gif';
+    };
+
+    selectedBox(0,1);
+    // checkWinner();
+    checkIfPlayerOneIsWinner();
   };
 
-  if(toggle ===  1){
-    document.querySelector('#row0-column1').src = 'Images/luigi.gif';
-  };
 
-  selectedBox(0,1);
-  checkWinner();
 });
 
 document.querySelector('#row0-column2').addEventListener('click', function(){
-  document.querySelector('#row0-column2').disabled = true;
-  if(toggle === 0){
-    document.querySelector('#row0-column2').src = 'Images/mario.gif';  //  console.log('going into toggle');
+
+  if(document.querySelector('#row0-column2').src === ''){
+      if(toggle === 0){
+        document.querySelector('#row0-column2').src = 'Images/mario.gif';  //  console.log('going into toggle');
+      };
+
+      if(toggle ===  1){
+        document.querySelector('#row0-column2').src = 'Images/luigi.gif';
+      };
   };
 
-  if(toggle ===  1){
-    document.querySelector('#row0-column2').src = 'Images/luigi.gif';
-  };
-//  toggleBetweenPlayers();
   selectedBox(0,2)
-  checkWinner();
+  // checkWinner();
+  checkIfPlayerOneIsWinner();
 });
 
 
@@ -163,95 +217,107 @@ document.querySelector('#row0-column2').addEventListener('click', function(){
 
 
 document.querySelector('#row1-column0').addEventListener('click', function(){
-  document.querySelector('#row1-column0').disabled = true;
 
-  if(toggle === 0){
-    document.querySelector('#row1-column0').src = 'Images/mario.gif';
+  if(document.querySelector('#row1-column0').src === ''){
+      if(toggle === 0){
+        document.querySelector('#row1-column0').src = 'Images/mario.gif';
+      };
+
+      if(toggle ===  1){
+        document.querySelector('#row1-column0').src = 'Images/luigi.gif';
+      };
+
+      selectedBox(1,0);
+      // checkWinner();
+      checkIfPlayerOneIsWinner();
   };
-
-  if(toggle ===  1){
-    document.querySelector('#row1-column0').src = 'Images/luigi.gif';
-  };
-
-  selectedBox(1,0);
-  checkWinner();
-
 });
 
 document.querySelector('#row1-column1').addEventListener('click', function(){
-  document.querySelector('#row1-column1').disabled = true;
-  if(toggle === 0){
-    document.querySelector('#row1-column1').src = 'Images/mario.gif';
-  };
+
+  if(document.querySelector('#row1-column1').src === ''){
+      if(toggle === 0){
+        document.querySelector('#row1-column1').src = 'Images/mario.gif';
+      };
 
 
-  if(toggle ===  1){
-    document.querySelector('#row1-column1').src = 'Images/luigi.gif';
-  };
+      if(toggle ===  1){
+        document.querySelector('#row1-column1').src = 'Images/luigi.gif';
+      };
 
   selectedBox(1,1);
-  checkWinner();
+  // checkWinner();
+  checkIfPlayerOneIsWinner();
 
+};
 });
 
 document.querySelector('#row1-column2').addEventListener('click', function(){
-  document.querySelector('#row1-column2').disabled = true;
-  if(toggle === 0){
-    document.querySelector('#row1-column2').src = 'Images/mario.gif';
+
+  if(document.querySelector('#row1-column2').src === ''){
+      if(toggle === 0){
+        document.querySelector('#row1-column2').src = 'Images/mario.gif';
+      };
+
+      if(toggle ===  1){
+        document.querySelector('#row1-column2').src = 'Images/luigi.gif';
+      };
+
+      selectedBox(1,2);
+      // checkWinner();
+      checkIfPlayerOneIsWinner();
   };
-
-  if(toggle ===  1){
-    document.querySelector('#row1-column2').src = 'Images/luigi.gif';
-  };
-
-  selectedBox(1,2);
-  checkWinner();
-
 });
 
 // Event Listener for row 2;
 
 document.querySelector('#row2-column0').addEventListener('click', function(){
-  document.querySelector('#row2-column0').disabled = true;
-  if(toggle === 0){
-    document.querySelector('#row2-column0').src = 'Images/mario.gif';
+
+  if(document.querySelector('#row2-column0').src === ''){
+      if(toggle === 0){
+        document.querySelector('#row2-column0').src = 'Images/mario.gif';
+      };
+
+      if(toggle ===  1){
+        document.querySelector('#row2-column0').src = 'Images/luigi.gif';
+      };
+
+      selectedBox(2,0);
+      // checkWinner();
+      checkIfPlayerOneIsWinner();
   };
-
-  if(toggle ===  1){
-    document.querySelector('#row2-column0').src = 'Images/luigi.gif';
-  };
-
-  selectedBox(2,0);
-  checkWinner();
-
 });
 
 document.querySelector('#row2-column1').addEventListener('click', function(){
-  document.querySelector('#row2-column1').disabled = true;
-  if(toggle === 0){
-    document.querySelector('#row2-column1').src = 'Images/mario.gif';
+
+  if(document.querySelector('#row2-column1').src === ''){
+      if(toggle === 0){
+        document.querySelector('#row2-column1').src = 'Images/mario.gif';
+      };
+
+      if(toggle ===  1){
+        document.querySelector('#row2-column1').src = 'Images/luigi.gif';
+      };
+
+      selectedBox(2,1);
+      // checkWinner();
+      checkIfPlayerOneIsWinner();
   };
-
-  if(toggle ===  1){
-    document.querySelector('#row2-column1').src = 'Images/luigi.gif';
-  };
-
-  selectedBox(2,1);
-  checkWinner();
-
 });
 
 document.querySelector('#row2-column2').addEventListener('click', function(){
-  document.querySelector('#row2-column2').disabled = true;
-  if(toggle === 0){
-    document.querySelector('#row2-column2').src = 'Images/mario.gif';
+
+  if(document.querySelector('#row2-column2').src === ''){
+      if(toggle === 0){
+        document.querySelector('#row2-column2').src = 'Images/mario.gif';
+      };
+
+      if(toggle ===  1){
+        document.querySelector('#row2-column2').src = 'Images/luigi.gif';
+      };
+
+      selectedBox(2,2);
+      // checkWinner();
+      checkIfPlayerOneIsWinner();
   };
-
-  if(toggle ===  1){
-    document.querySelector('#row2-column2').src = 'Images/luigi.gif';
-  };
-
-  selectedBox(2,2);
-  checkWinner();
-
 });
