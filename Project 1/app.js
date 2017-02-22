@@ -8,40 +8,64 @@ var toggle = 0; //assign value for toggling;
 
 var combineAllArrays = [];
 
-var credit0 = function(){
-  document.querySelector('body p').innerHTML = 'SPECIAL THANKS TO....';
-  setTimeout(credit1,5000);
+var creditCounter = 0;
+var timerTicket;
 
+var creditedTo = ['SPECIAL THANKS TO....',
+              'DANIEL TSUI (DT)',
+              'KASUN MALDENI',
+              '#FULLSLACK TEAM!',
+              'AND....',
+              'GOOGLE!',
+              'barry™ PRODUCTION'];
+
+var credits = function(){
+  document.querySelector('body p').innerHTML = creditedTo[creditCounter];
+  creditCounter++;
+  if(creditCounter === creditedTo.length){
+    clearInterval(timerTicket);
+  };
 };
 
-var credit1 = function(){
-  document.querySelector('body p').innerHTML = 'DANIEL TSU (DT)';
-  setTimeout(credit2,5000);
+var creditsTimer = function(){
+  timerTicket = setInterval(credits, 5000);
 };
 
-var credit2 = function(){
-  document.querySelector('body p').innerHTML = 'KASUN MALDENI';
-  setTimeout(credit3,5000);
-};
 
-var credit3 = function(){
-  document.querySelector('body p').innerHTML = '#FULLSLACK TEAM!';
-  setTimeout(credit4,5000);
-};
-
-var credit4 = function(){
-  document.querySelector('body p').innerHTML = 'AND....';
-  setTimeout(credit5,5000);
-};
-
-var credit5 = function(){
-  document.querySelector('body p').innerHTML = 'GOOGLE!';
-  setTimeout(credit6,5000);
-};
-
-var credit6 = function(){
-  document.querySelector('body p').innerHTML = 'barry™ PRODUCTION';
-};
+// var credit0 = function(){
+//   document.querySelector('body p').innerHTML = 'SPECIAL THANKS TO....';
+//   setTimeout(credit1,5000);
+//
+// };
+//
+// var credit1 = function(){
+//   document.querySelector('body p').innerHTML = 'DANIEL TSUI (DT)';
+//   setTimeout(credit2,5000);
+// };
+//
+// var credit2 = function(){
+//   document.querySelector('body p').innerHTML = 'KASUN MALDENI';
+//   setTimeout(credit3,5000);
+// };
+//
+// var credit3 = function(){
+//   document.querySelector('body p').innerHTML = '#FULLSLACK TEAM!';
+//   setTimeout(credit4,5000);
+// };
+//
+// var credit4 = function(){
+//   document.querySelector('body p').innerHTML = 'AND....';
+//   setTimeout(credit5,5000);
+// };
+//
+// var credit5 = function(){
+//   document.querySelector('body p').innerHTML = 'GOOGLE!';
+//   setTimeout(credit6,5000);
+// };
+//
+// var credit6 = function(){
+//   document.querySelector('body p').innerHTML = 'barry™ PRODUCTION';
+// };
 
 
 var selectedBox = function (row, column){
@@ -64,13 +88,13 @@ var endOfGame = function(){
   document.querySelector('body').appendChild(newDiv);
   document.querySelector('body div').className = 'end-game';
   document.querySelector('body div').appendChild(newH1);
-  document.querySelector('body h1').innerHTML = "GAME OVER"
+  document.querySelector('body h1').innerHTML = 'GAME OVER';
   document.querySelector('body div').appendChild(newButton);
   document.querySelector('body div').appendChild(newParagraph); // create new paragraphs
   document.querySelector('body button').innerHTML = 'PLAY AGAIN';
-  document.querySelector('body button').className = 'play-again-btn'
+  document.querySelector('body button').className = 'play-again-btn';
 
-  setTimeout(credit0,5000);
+  setTimeout(creditsTimer,5000);
 
   document.querySelector('.play-again-btn').addEventListener('click', function(){
     location.reload();
@@ -83,14 +107,14 @@ var winner = function(winningPlayer){ // announce Winner
   if(winningPlayer === 0){
 
     document.querySelector("body h1").innerHTML = "PLAYER ONE WINS"
-    setTimeout(endOfGame,500);
+    setTimeout(endOfGame,1000);
 
   };
 
   if(winningPlayer === 1){
 
     document.querySelector("body h1").innerHTML = "PLAYER TWO WINS";
-    setTimeout(endOfGame,500);
+    setTimeout(endOfGame,1000);
 
   };
 
@@ -107,10 +131,13 @@ var checkIfPlayerOneIsWinner = function (){
       boardGame[0][2] + boardGame[1][2] + boardGame[2][2] === 6 ||
       boardGame[0][0] + boardGame[1][1] + boardGame[2][2] === 6 ||
       boardGame[2][0] + boardGame[1][1] + boardGame[0][2] === 6 ){
+
       winner(0);
-      };
+
+  };
 
   checkIfPlayerTwoIsWinner();
+
 };
 
 var checkIfPlayerTwoIsWinner = function (){
@@ -142,20 +169,10 @@ var checkingIfTieGame = function(){ // checking if tie game
   };
 
   document.querySelector("body h1").innerHTML = "TIE GAME";
-  setTimeout(endOfGame,500);
+
+  setTimeout(endOfGame,1000);
 };
 
-// var checkWinner = function(){
-//   checkingIfTieGame();
-//   checkIfPlayerOneIsWinner();
-//   checkIfPlayerTwoIsWinner();
-//
-// };
-
-// Event Listener - row 0 ;
-
-
-  // $('#row0-column0').on('click',function(){
 document.querySelector("#row0-column0").addEventListener('click', function(){
 
   if(document.querySelector('#row0-column0').src === ''){
@@ -168,7 +185,7 @@ document.querySelector("#row0-column0").addEventListener('click', function(){
       };
 
       selectedBox(0,0);
-      // checkWinner();
+
       checkIfPlayerOneIsWinner();
 
   };
@@ -317,7 +334,7 @@ document.querySelector('#row2-column2').addEventListener('click', function(){
       };
 
       selectedBox(2,2);
-      // checkWinner();
+
       checkIfPlayerOneIsWinner();
   };
 });
