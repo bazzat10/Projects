@@ -107,3 +107,6 @@ technologies used, the approach taken, installation instructions, unsolved probl
 ###### NIN TEN DOE is a Nintendo themed game based on **TIC TAC TOE** aka **'noughts and crosses'**.
 
 ###### NINTENDOE is a game for two players, Player One as **Mario** and Player Two as **Luigi**, Players take turns marking the empty spaces with their characters in a 3×3 grid. The player who succeeds in placing three of their *characters* in a horizontal, vertical, or diagonal row wins the game.
+
+
+###[PLAY 'NIN TEN DOE'](https://bazzat10.github.io/Projects/Project1/)
