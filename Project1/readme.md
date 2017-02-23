@@ -8,40 +8,42 @@
 ### APPROACH
 
 * ##### THE GAME
-  *  I *opted* for the recommended game - TIC TAC TOE. As this allowed me to dive straight into brainstorming possible themes for the game.
+  *  I *opted* for the recommended game - TIC TAC TOE as this allowed me to dive straight into brainstorming possible themes for the game.
 
   * I rely mostly on my experiences to be creative. I am a *casual* gamer and when I play, it is mostly with Nintendo Consoles. Hence - Super Mario themed TIC TAC TOE.
 
 * ##### DESIGN
   * Initial sketches on paper
-    * Heading centered and on top
-    * Player One / Player Two - top left and right corner.
+    * Heading - centered and top
+    * Player One and Player Two - top left and right corner.
     * Players to choose a list of character - Mario, Luigi, Toad, Princess Peach
     * 9 boxes = 3 x 3
     * Board game = The 9 boxes to be separated by *jpeg/png* images of bricks from Super Mario
-    * [Initial sketch of the board game](https://github.com/bazzat10/Projects/blob/master/Project1/Images/Draft1.jpg)
-
+    * ['Initial sketch of the board game'](https://github.com/bazzat10/Projects/blob/master/Project1/Images/Draft1.jpg)<br>
+    <br>
   * FINAL DESIGN
-    * FIRST PAGE: See-through page with START BUTTON [View Start Page](https://github.com/bazzat10/Projects/blob/master/Project1/Images/start.png)
+    * FIRST PAGE: See-through page with START BUTTON ['View Start Page'](https://github.com/bazzat10/Projects/blob/master/Project1/Images/start.png)
     * GAME PLAY - Heading centered and on top
     * Player One / Player Two - top left and right corner.
     * Player One - Mario / Player Two - Luigi
-    * 9 boxes - 3 x 3 [View During Game Play](https://github.com/bazzat10/Projects/blob/master/Project1/Images/gameplay.png)
+    * 9 boxes - 3 x 3 ['View During Game Play'](https://github.com/bazzat10/Projects/blob/master/Project1/Images/gameplay.png)
     * END GAME - Heading GAME OVER centered on top
-      * Button PLAY AGAIN centered
-      * Credits rolling [View End of Game](https://github.com/bazzat10/Projects/blob/master/Project1/Images/endgame.png)
+    * Button PLAY AGAIN centered
+    * Credits rolling ['View End of Game'](https://github.com/bazzat10/Projects/blob/master/Project1/Images/endgame.png)
 
 
 ### FUNCTION - SOLUTION
-##### My best approach to this game was writing it in native Javascript, as I was more confident using it in manipulating the DOM than JQUERY.
 
-##### DETERMINING THE WINNER - There are 8 possible ways for a player to win in this game - either ROWS / COLUMNS or DIAGONALLY.
-##### When a player selects a box, a *value* will be stored in a variable of (ARRAY of ARRAYS). When Player One selects a box - a value of 2 will be stored in the corresponding ARRAY.
-######## For Example: PLAYER ONE selects the top left corner, then PLAYER TWO Selects the middles box.
+My best approach to this game was writing it in native Javascript, as I was more confident using it in manipulating the DOM than JQUERY.
 
-PLAYER ONE inserts a value of 2.
-PLAYER 2 inserts a value of 3.
+**DETERMINING THE WINNER** - There are 8 possible ways for a player to win in this game - either HORIZONTAL (rows), vertical (Columns) or in DIAGONAL.
 
+When a player selects a box, a *value* will be stored in a variable of ARRAYS. When *Player One* selects a box - a value of 2 will be stored in the corresponding ARRAY.
+
+For Example: PLAYER ONE selects the top left corner, then PLAYER TWO Selects the middles box.
+
+**PLAYER ONE - A value of 3 is inserted into the array.**
+**PLAYER TWO - A value of 3 is inserted into the array.**
 
                    2  |      |            
                  -----|------|-----
@@ -56,7 +58,11 @@ PLAYER 2 inserts a value of 3.
                       |      |
 
 
-After each move by the player the code run by adding the numbers together diagonally, horizontally and vertically, and checks if the numbers ADD up to either 6 or 9. If the numbers add to 6 PLAYER ONE wins. IF the numbers add to 9 PLAYER TWO wins. REMEMBER that each time Player One selects a box, the value 2, gets inserted into the array. PLAYER TWO inserts the value 3.
+After each move by the player - a function(code) runs by adding the numbers together -  diagonally, horizontally and vertically. Another function(code) than compares if the SUM of the values ADD up to either **6** or **9**. If the SUM add up to **6** PLAYER ONE wins. If the values add up to **9** PLAYER TWO wins.
+
+REMEMBER that each time Player One selects a box, a value of 2, gets inserted into the array. PLAYER TWO inserts the value 3.
+
+examples:
 
 
                    2  |   2  |  2   = 6 (PLAYER ONE WINS)
@@ -65,45 +71,52 @@ After each move by the player the code run by adding the numbers together diagon
                  -----|------|-----
                       |      |
 
+                   2  |   2  |   3  = 9 (PLAYER TWO WINS)
+                 -----|------|-----
+                      |  3   |  2
+                 -----|------|-----
+                  3   |      |
 
 
 
 
 
-# DIARY LOG
+
+### DIARY LOG
 ###### Tuesday 21/02/17
-  * Pick Game
-  * Pick theme - download background pics / gif images
-  * step by step to determining solution - outcome - winner
-  * Start coding - main function working: outcome - winner
-  * END GAME Page - main function completed. Credits / Play Again button working
+  * Pick Game - TIC TAC TOE.
+  * Pick theme - SUPER MARIO - Nintendo Theme - download background pics / gif images.
+  * Work out solution - step by step process in determining winner of the Game.
+  * Work out how to toggle between player 1 and player 2.
+  * Determine technologies to use - native Javascript / CSS / HTML.
+  * Start coding - Main function completed: Output - winner of game.
+  * END GAME Page - Rolling Credits / **PLAY AGAIN** button working.
+
 ###### Wednesday 22/02/17
-  * Bug fixes - disabling player to change image on a box.
-  * Add front layer with START BUTTON
+  * Bug fixes - DISABLED the ability to RE-SELECT a box. Once image and value is inserted a player can no longer changes its value until game is restarted.
+  * Add front layer with START BUTTON.
   * Shorten the code for credit appearance.
-  * fixing CSS!!!!
-###### Thursday 2302/17
+  * updated CSS!!!!.
+
+###### Thursday 23/02/17
+  * Shorten code (DRYer approach). Deleted repetitive functions with the use of boolean statements. ['View Original Code'](https://github.com/bazzat10/Projects/blob/master/Project1/original_working_js.js)
+  * Bug Fixes - DISABLED the ability to SELECT a box once there is a winner. Due to my TIMER DELAY, this needed to be done.
+
+###### Friday 24/02/17
 
 
 
-# UNRESOLVED ISSUES
-* In initial plan - players able to select their own character from a list. exampled. Toad / Mario / Luigi / Princess Peach.
-* Shorten code. I can make all the functions work. HOWEVER I have trouble shortening my code, or finding more efficient way.
+### UNRESOLVED ISSUES
+* In my initial plan - players would be able to select from a list of characters such as Toad / Mario / Luigi / Princess Peach.
+* Shorten code - DRYer. Make the code flow more efficient.
+
+### GAME RULES
+
+NIN TEN DOE is a Nintendo themed game based on **TIC TAC TOE** aka **'noughts and crosses'**.
+
+**NIN TEN DOE** is a game for two players, Player One as **Mario** and Player Two as **Luigi**, Players take turns marking the empty spaces with their characters in a 3×3 grid. The player who succeeds in placing three of their *characters* in a horizontal, vertical, or diagonal wins the game.
 
 
+### PLAY --->['NIN TEN DOE'](https://bazzat10.github.io/Projects/Project1/)
 
-
-technologies used, the approach taken, installation instructions, unsolved problems, etc.
-
-
-
-
-
-
-#GAME RULES
-###### NIN TEN DOE is a Nintendo themed game based on **TIC TAC TOE** aka **'noughts and crosses'**.
-
-###### NINTENDOE is a game for two players, Player One as **Mario** and Player Two as **Luigi**, Players take turns marking the empty spaces with their characters in a 3×3 grid. The player who succeeds in placing three of their *characters* in a horizontal, vertical, or diagonal row wins the game.
-
-
-###[PLAY 'NIN TEN DOE'](https://bazzat10.github.io/Projects/Project1/)
+barry™ PRODUCTION

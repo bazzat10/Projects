@@ -1,10 +1,10 @@
 console.log('JAVASCRIPT WORKING FOR PR0JECT 1 - TIC TAC TOE');
 var boardGame = [['','',''],['','',''],['','','']];
 
-var toggle = 0; //assign value for toggling;
+var toggleBetweenPlayers = 0; //assign value for toggling;
 
 var combineAllArrays = [];
-
+var gameComplete = false; // whether or not game is still going
 var creditCounter = 0;
 var timerTicket;
 
@@ -30,12 +30,12 @@ var creditsTimer = function(){
 
 
 var selectedBox = function (row, column){
-  if(toggle === 0){ // used to toggle between players
+  if(toggleBetweenPlayers === 0){ // used to toggle between players
     boardGame[row][column] = 2;
-    toggle = 1; // assign to player two
+    toggleBetweenPlayers = 1; // assign to player two
   } else {
     boardGame[row][column] = 3;
-    toggle = 0; // assign to player one
+    toggleBetweenPlayers = 0; // assign to player one
   };
 
 };
@@ -59,12 +59,13 @@ var endOfGame = function(){ // deletes page and creates new page
 
   document.querySelector('.play-again-btn').addEventListener('click', function(){
     location.reload();
-  })
-
+  });
 
 };
 
+
 var winner = function(winningPlayer){ // announce Winner
+  gameComplete = true;
   if(winningPlayer === 0){
 
     document.querySelector("body h1").innerHTML = "PLAYER ONE WINS"
@@ -81,40 +82,33 @@ var winner = function(winningPlayer){ // announce Winner
 
 };
 
-
-
-var checkIfPlayerOneIsWinner = function (){
-  if( boardGame[0][0] + boardGame[0][1] + boardGame[0][2] === 6 ||
-      boardGame[1][0] + boardGame[1][1] + boardGame[1][2] === 6 ||
-      boardGame[2][0] + boardGame[2][1] + boardGame[2][2] === 6 ||
-      boardGame[0][0] + boardGame[1][0] + boardGame[2][0] === 6 ||
-      boardGame[0][1] + boardGame[1][1] + boardGame[2][1] === 6 ||
-      boardGame[0][2] + boardGame[1][2] + boardGame[2][2] === 6 ||
-      boardGame[0][0] + boardGame[1][1] + boardGame[2][2] === 6 ||
-      boardGame[2][0] + boardGame[1][1] + boardGame[0][2] === 6 ){
-
-      winner(0);
-
+var checkIfPlayerOneIsWinner = function(){
+  if(checkWinner(6)){ // if statement calls function and check if it is true
+    winner(0);
   };
-
   checkIfPlayerTwoIsWinner();
+}
 
-};
 
 var checkIfPlayerTwoIsWinner = function (){
-  if( boardGame[0][0] + boardGame[0][1] + boardGame[0][2] === 9 ||
-      boardGame[1][0] + boardGame[1][1] + boardGame[1][2] === 9 ||
-      boardGame[2][0] + boardGame[2][1] + boardGame[2][2] === 9 ||
-      boardGame[0][0] + boardGame[1][0] + boardGame[2][0] === 9 ||
-      boardGame[0][1] + boardGame[1][1] + boardGame[2][1] === 9 ||
-      boardGame[0][2] + boardGame[1][2] + boardGame[2][2] === 9 ||
-      boardGame[0][0] + boardGame[1][1] + boardGame[2][2] === 9 ||
-      boardGame[2][0] + boardGame[1][1] + boardGame[0][2] === 9 ){
-      winner(1);
-      };
-
+  if (checkWinner(9)) { // if value 9 is passed through and if condition is true it will enter if statement.
+    winner(1);
+  }
   checkingIfTieGame();
 };
+
+var checkWinner = function(score) {
+  if(boardGame[0][0] + boardGame[0][1] + boardGame[0][2] === score ||
+     boardGame[1][0] + boardGame[1][1] + boardGame[1][2] === score ||
+     boardGame[2][0] + boardGame[2][1] + boardGame[2][2] === score ||
+     boardGame[0][0] + boardGame[1][0] + boardGame[2][0] === score ||
+     boardGame[0][1] + boardGame[1][1] + boardGame[2][1] === score ||
+     boardGame[0][2] + boardGame[1][2] + boardGame[2][2] === score ||
+     boardGame[0][0] + boardGame[1][1] + boardGame[2][2] === score ||
+     boardGame[2][0] + boardGame[1][1] + boardGame[0][2] === score ){
+     return true
+  }
+}
 
 var checkingIfTieGame = function(){ // checking if tie game
   var array1 = boardGame[0];
@@ -131,165 +125,67 @@ var checkingIfTieGame = function(){ // checking if tie game
 
   document.querySelector("body h1").innerHTML = "TIE GAME"; // will display if all arrays are filled.
   setTimeout(endOfGame,1000);
+
 };
 
-document.querySelector("#row0-column0").addEventListener('click', function(){
 
-  if(document.querySelector('#row0-column0').src === ''){
-      if(toggle === 0){
-          document.querySelector('#row0-column0').src = 'Images/mario.gif';
-      };
+var assignValueToArray = function(idName){
 
-      if(toggle ===  1){
-        document.querySelector('#row0-column0').src = 'Images/luigi.gif';
-      };
-
+  switch(idName) {
+    case 'row0-column0':
       selectedBox(0,0);
-
-      checkIfPlayerOneIsWinner();
-
-  };
-
-
-});
-
-document.querySelector('#row0-column1').addEventListener('click', function(event){
-
-  if(document.querySelector('#row0-column1').src === ''){
-    if(toggle === 0){
-      document.querySelector('#row0-column1').src = 'Images/mario.gif';
-    };
-
-    if(toggle ===  1){
-      document.querySelector('#row0-column1').src = 'Images/luigi.gif';
-    };
-
-    selectedBox(0,1);
-    checkIfPlayerOneIsWinner();
-  };
-
-
-});
-
-document.querySelector('#row0-column2').addEventListener('click', function(){
-
-  if(document.querySelector('#row0-column2').src === ''){
-      if(toggle === 0){
-        document.querySelector('#row0-column2').src = 'Images/mario.gif';  //  console.log('going into toggle');
-      };
-
-      if(toggle ===  1){
-        document.querySelector('#row0-column2').src = 'Images/luigi.gif';
-      };
-  };
-
-  selectedBox(0,2)
-  checkIfPlayerOneIsWinner();
-});
-
-
-// Event Listener row 1;
-
-
-document.querySelector('#row1-column0').addEventListener('click', function(){
-
-  if(document.querySelector('#row1-column0').src === ''){
-      if(toggle === 0){
-        document.querySelector('#row1-column0').src = 'Images/mario.gif';
-      };
-
-      if(toggle ===  1){
-        document.querySelector('#row1-column0').src = 'Images/luigi.gif';
-      };
-
+      break;
+    case 'row0-column1':
+      selectedBox(0,1);
+      break;
+    case 'row0-column2':
+      selectedBox(0,2);
+      break;
+    case 'row1-column0':
       selectedBox(1,0);
-      checkIfPlayerOneIsWinner();
-  };
-});
-
-document.querySelector('#row1-column1').addEventListener('click', function(){
-
-  if(document.querySelector('#row1-column1').src === ''){
-      if(toggle === 0){
-        document.querySelector('#row1-column1').src = 'Images/mario.gif';
-      };
-
-
-      if(toggle ===  1){
-        document.querySelector('#row1-column1').src = 'Images/luigi.gif';
-      };
-
-  selectedBox(1,1);
-  checkIfPlayerOneIsWinner();
-
-  };
-});
-
-document.querySelector('#row1-column2').addEventListener('click', function(){
-
-  if(document.querySelector('#row1-column2').src === ''){
-      if(toggle === 0){
-        document.querySelector('#row1-column2').src = 'Images/mario.gif';
-      };
-
-      if(toggle ===  1){
-        document.querySelector('#row1-column2').src = 'Images/luigi.gif';
-      };
-
+      break;
+    case 'row1-column1':
+      selectedBox(1,1);
+      break;
+    case 'row1-column2':
       selectedBox(1,2);
-      checkIfPlayerOneIsWinner();
-  };
-});
-
-// Event Listener for row 2;
-
-document.querySelector('#row2-column0').addEventListener('click', function(){
-
-  if(document.querySelector('#row2-column0').src === ''){
-      if(toggle === 0){
-        document.querySelector('#row2-column0').src = 'Images/mario.gif';
-      };
-
-      if(toggle ===  1){
-        document.querySelector('#row2-column0').src = 'Images/luigi.gif';
-      };
-
+      break;
+    case 'row2-column0':
       selectedBox(2,0);
-      checkIfPlayerOneIsWinner();
-  };
-});
-
-document.querySelector('#row2-column1').addEventListener('click', function(){
-
-  if(document.querySelector('#row2-column1').src === ''){
-      if(toggle === 0){
-        document.querySelector('#row2-column1').src = 'Images/mario.gif';
-      };
-
-      if(toggle ===  1){
-        document.querySelector('#row2-column1').src = 'Images/luigi.gif';
-      };
-
+      break;
+    case 'row2-column1':
       selectedBox(2,1);
-      checkIfPlayerOneIsWinner();
-  };
-});
-
-document.querySelector('#row2-column2').addEventListener('click', function(){
-
-  if(document.querySelector('#row2-column2').src === ''){
-      if(toggle === 0){
-        document.querySelector('#row2-column2').src = 'Images/mario.gif';
-      };
-
-      if(toggle ===  1){
-        document.querySelector('#row2-column2').src = 'Images/luigi.gif';
-      };
-
+      break;
+    case 'row2-column2':
       selectedBox(2,2);
-      checkIfPlayerOneIsWinner();
-  };
-});
+      break;
+ };
+};
+
+
+var captureEvent = function(event){
+
+  var x = event.target;
+
+  if(x.src === '' && !gameComplete){ // if box is empty AND if game is NOT True. (if(!gameComplete) if game is NOT true keep doing this.
+        if(toggleBetweenPlayers === 0){
+            x.src = 'Images/mario.gif';
+        };
+
+        if(toggleBetweenPlayers ===  1){
+          x.src = 'Images/luigi.gif';
+        };
+
+        idName = x.id;
+
+        assignValueToArray(idName);
+
+        checkIfPlayerOneIsWinner();
+    };
+};
+
+
+document.querySelector('.board-game').addEventListener('click', captureEvent); // captures the event and calls the function campture event.
 
 document.querySelector('.start-btn').addEventListener('click', function(){
   document.querySelector('.start-page').remove();
