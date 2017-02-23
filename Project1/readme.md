@@ -45,6 +45,8 @@ For Example: PLAYER ONE selects the top left corner, then PLAYER TWO Selects the
 **PLAYER ONE - A value of 3 is inserted into the array.**
 **PLAYER TWO - A value of 3 is inserted into the array.**
 
+![Diagram 1](/Images/diagram1.png)
+
                    2  |      |            
                  -----|------|-----
                       |  3   |
@@ -63,6 +65,8 @@ After each move by the player - a function(code) runs by adding the numbers toge
 REMEMBER that each time Player One selects a box, a value of 2, gets inserted into the array. PLAYER TWO inserts the value 3.
 
 examples:
+
+![Diagram 2](/Images/diagram2.png)
 
 
                    2  |   2  |  2   = 6 (PLAYER ONE WINS)
