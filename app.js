@@ -7,6 +7,8 @@ var combineAllArrays = [];
 var gameComplete = false; // whether or not game is still going
 var creditCounter = 0;
 var timerTicket;
+var playerOneScore = 0;
+var playerTwoScore = 0;
 
 var creditedTo = ['SPECIAL THANKS TO....',
               'DANIEL TSUI (DT)',
@@ -84,6 +86,8 @@ var winner = function(winningPlayer){ // announce Winner
 var checkIfPlayerOneIsWinner = function(){
   if(checkWinner(6)){ // if statement calls function and check if it is true
     winner(0);
+    playerOneScore++;
+    document.querySelector('.p1-scoreboard').innerHTML = playerOneScore;
     return; // used RETURN to exit the function without calling the next function in line checkIfPlayerTwoIsWinner
   };
   checkIfPlayerTwoIsWinner();
@@ -93,6 +97,8 @@ var checkIfPlayerOneIsWinner = function(){
 var checkIfPlayerTwoIsWinner = function (){
   if (checkWinner(9)) { // if value 9 is passed through and if condition is true it will enter if statement.
     winner(1);
+    playerTwoScore++;
+    document.querySelector('.p2-scoreboard').innerHTML = playerTwoScore;
     return;
   }
   checkingIfTieGame();

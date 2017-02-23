@@ -13,6 +13,11 @@ body {
   text-align: center;
 }
 
+.p1-scoreboard, .p2-scoreboard{
+  height: 20px;
+  width: 20px;
+  border: 1px solid black;
+}
 
 h1, h3 {
   text-align: center;
