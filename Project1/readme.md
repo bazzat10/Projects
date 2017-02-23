@@ -76,7 +76,7 @@ examples:
 ###### Thursday 23/02/17
   * Shorten code (DRYer approach). Deleted repetitive functions with the use of boolean statements. ['View Original Code'](https://github.com/bazzat10/Projects/blob/master/Project1/original_working_js.js)
   * Bug Fixes - DISABLED the ability to SELECT a box once there is a winner. Due to my TIMER DELAY, this needed to be done.
-  * Bug Fixes - Player is now announced WINNER if they win on the last box. NO Longer show TIE GAME. Used *return* function to immediately exit the function. 
+  * Bug Fixes - Player is now announced WINNER if they win on the last box. NO Longer show TIE GAME. Used *return* to immediately exit the function.
 
 ###### Friday 24/02/17
 
