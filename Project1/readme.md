@@ -13,23 +13,25 @@
   * I rely mostly on my experiences to be creative. I am a *casual* gamer and when I play, it is mostly with Nintendo Consoles. Hence - Super Mario themed TIC TAC TOE.
 
 * ##### DESIGN
-  * Initial sketches on paper
+  * Initial Sketches
     * Heading - centered and top
     * Player One and Player Two - top left and right corner.
     * Players to choose a list of character - Mario, Luigi, Toad, Princess Peach
     * 9 boxes = 3 x 3
     * Board game = The 9 boxes to be separated by *jpeg/png* images of bricks from Super Mario
-    * ![Initial sketch of the board game](https://github.com/bazzat10/Projects/blob/master/Project1/Images/Draft1.jpg)<br>
+    * ['VIEW Initial sketch of the board game'](https://github.com/bazzat10/Projects/blob/master/Project1/Images/Draft1.jpg)<br>
     <br>
-  * FINAL DESIGN
-    * FIRST PAGE: See-through page with START BUTTON ['View Start Page'](https://github.com/bazzat10/Projects/blob/master/Project1/Images/start.png)
+  * Final Design
+    * FIRST PAGE: See-through page with START BUTTON
+    ![Start Page](https://github.com/bazzat10/Projects/blob/master/Project1/Images/start.png)
     * GAME PLAY - Heading centered and on top
     * Player One / Player Two - top left and right corner.
     * Player One - Mario / Player Two - Luigi
-    * 9 boxes - 3 x 3 ['View During Game Play'](https://github.com/bazzat10/Projects/blob/master/Project1/Images/gameplay.png)
+    * 9 boxes - 3 x 3
+    ![During Game Play](https://github.com/bazzat10/Projects/blob/master/Project1/Images/gameplay.png)
     * END GAME - Heading GAME OVER centered on top
     * Button PLAY AGAIN centered
-    * Credits rolling ['View End of Game'](https://github.com/bazzat10/Projects/blob/master/Project1/Images/endgame.png)
+    * Credits rolling ![End of Game](https://github.com/bazzat10/Projects/blob/master/Project1/Images/endgame.png)
 
 
 ### FUNCTION - SOLUTION
