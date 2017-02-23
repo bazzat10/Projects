@@ -85,6 +85,7 @@ var winner = function(winningPlayer){ // announce Winner
 var checkIfPlayerOneIsWinner = function(){
   if(checkWinner(6)){ // if statement calls function and check if it is true
     winner(0);
+    return; // used RETURN to exit the function without calling the next function in line checkIfPlayerTwoIsWinner
   };
   checkIfPlayerTwoIsWinner();
 }
@@ -93,6 +94,7 @@ var checkIfPlayerOneIsWinner = function(){
 var checkIfPlayerTwoIsWinner = function (){
   if (checkWinner(9)) { // if value 9 is passed through and if condition is true it will enter if statement.
     winner(1);
+    return;
   }
   checkingIfTieGame();
 };
@@ -167,7 +169,7 @@ var captureEvent = function(event){
 
   var x = event.target;
 
-  if(x.src === '' && !gameComplete){ // if box is empty AND if game is NOT True. (if(!gameComplete) if game is NOT true keep doing this.
+  if(x.src === '' && !gameComplete){ // if box is empty AND that it i NOT True. (if(!gameComplete) if game is NOT true keep doing this.
         if(toggleBetweenPlayers === 0){
             x.src = 'Images/mario.gif';
         };
