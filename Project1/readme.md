@@ -45,7 +45,7 @@ For Example: PLAYER ONE selects the top left corner, then PLAYER TWO Selects the
 **PLAYER ONE - A value of 3 is inserted into the array.**
 **PLAYER TWO - A value of 3 is inserted into the array.**
 
-![Diagram 1](/Images/diagram1.png)
+![Diagram 1](https://github.com/bazzat10/Projects/blob/master/Project1/Images/diagram1.png)
 
                    2  |      |            
                  -----|------|-----
@@ -66,7 +66,7 @@ REMEMBER that each time Player One selects a box, a value of 2, gets inserted in
 
 examples:
 
-![Diagram 2](/Images/diagram2.png)
+![Diagram 2](https://github.com/bazzat10/Projects/blob/master/Project1/Images/diagram2.png)
 
 
                    2  |   2  |  2   = 6 (PLAYER ONE WINS)
