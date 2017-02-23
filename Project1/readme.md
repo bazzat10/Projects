@@ -47,19 +47,6 @@ For Example: PLAYER ONE selects the top left corner, then PLAYER TWO Selects the
 
 ![Diagram 1](https://github.com/bazzat10/Projects/blob/master/Project1/Images/diagram1.png)
 
-                   2  |      |            
-                 -----|------|-----
-                      |  3   |
-                 -----|------|-----
-                      |      |
-
-                   2  |   2  |
-                 -----|------|-----
-                      |  3   |
-                 -----|------|-----
-                      |      |
-
-
 After each move by the player - a function(code) runs by adding the numbers together -  diagonally, horizontally and vertically. Another function(code) than compares if the SUM of the values ADD up to either **6** or **9**. If the SUM add up to **6** PLAYER ONE wins. If the values add up to **9** PLAYER TWO wins.
 
 REMEMBER that each time Player One selects a box, a value of 2, gets inserted into the array. PLAYER TWO inserts the value 3.
@@ -67,24 +54,6 @@ REMEMBER that each time Player One selects a box, a value of 2, gets inserted in
 examples:
 
 ![Diagram 2](https://github.com/bazzat10/Projects/blob/master/Project1/Images/diagram2.png)
-
-
-                   2  |   2  |  2   = 6 (PLAYER ONE WINS)
-                 -----|------|-----
-                      |  3   |  3
-                 -----|------|-----
-                      |      |
-
-                   2  |   2  |   3  = 9 (PLAYER TWO WINS)
-                 -----|------|-----
-                      |  3   |  2
-                 -----|------|-----
-                  3   |      |
-
-
-
-
-
 
 ### DIARY LOG
 ###### Tuesday 21/02/17
