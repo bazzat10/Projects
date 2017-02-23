@@ -28,7 +28,6 @@ var creditsTimer = function(){
   timerTicket = setInterval(credits, 5000);
 };
 
-
 var selectedBox = function (row, column){
   if(toggleBetweenPlayers === 0){ // used to toggle between players
     boardGame[row][column] = 2;
