@@ -19,20 +19,19 @@
     * Players to choose a list of character - Mario, Luigi, Toad, Princess Peach
     * 9 boxes = 3 x 3
     * Board game = The 9 boxes to be separated by *jpeg/png* images of bricks from Super Mario
-    * Initial sketch of the board game - A [link](Images/Draft1.jpg"draft").
+    * Initial sketch of the board game - A[link](https://github.com/bazzat10/Projects/blob/master/Project1/Images/Draft1.jpg"draft")
 
   * FINAL DESIGN
-    * FIRST PAGE - See Through - with START BUTTON  
-      * A [link](Images/start.png"start").
-    * GAME PLAY - Heading Centered and on top
+    * FIRST PAGE: See-through page with START BUTTON  
+      * A[link](https://github.com/bazzat10/Projects/blob/master/Project1/Images/start.png"start")
+    * GAME PLAY - Heading centered and on top
     * Player One / Player Two - top left and right corner.
     * Player One - Mario / Player Two - Luigi
     * 9 boxes - 3 x 3
-      *  A [link](Images/gameplay.png"gameplay").
+      *  A[link](https://github.com/bazzat10/Projects/blob/master/Project1/Images/gameplay.png"gameplay")
     * END GAME - Heading GAME OVER centered on top
-    * Button PLAY AGAIN centered
-    * Credits rolling
-      *  A [link](Images/endgame.jpg"endgame").
+      * Button PLAY AGAIN centered
+      * Credits rolling A[link](https://github.com/bazzat10/Projects/blob/master/Project1/Images/endgame.png"endgame")
 
 
 ### FUNCTION - SOLUTION
