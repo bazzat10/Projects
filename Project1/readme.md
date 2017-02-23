@@ -19,7 +19,7 @@
     * Players to choose a list of character - Mario, Luigi, Toad, Princess Peach
     * 9 boxes = 3 x 3
     * Board game = The 9 boxes to be separated by *jpeg/png* images of bricks from Super Mario
-    * ['Initial sketch of the board game'](https://github.com/bazzat10/Projects/blob/master/Project1/Images/Draft1.jpg)<br>
+    * ![Initial sketch of the board game](https://github.com/bazzat10/Projects/blob/master/Project1/Images/Draft1.jpg)<br>
     <br>
   * FINAL DESIGN
     * FIRST PAGE: See-through page with START BUTTON ['View Start Page'](https://github.com/bazzat10/Projects/blob/master/Project1/Images/start.png)
