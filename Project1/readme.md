@@ -85,6 +85,13 @@ examples:
 ### UNRESOLVED ISSUES
 * In my initial plan - players would be able to select from a list of characters such as Toad / Mario / Luigi / Princess Peach.
 * Shorten code - DRYer. Make the code flow more efficient.
+* CSS Bugs!!!!
+
+
+### FUTURE PLANS
+* Implement the ability for players to select different characters
+* Scoreboard
+
 
 ### GAME RULES
 
