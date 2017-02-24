@@ -23,7 +23,7 @@
     <br>
   * Final Design
     * FIRST PAGE: See-through page with START BUTTON
-    ![Start Page](github.com/bazzat10/Projects/blob/master/Images/start.png)
+    ![Start Page](https://github.com/bazzat10/Projects/blob/master/Images/start.png)
     * GAME PLAY - Heading centered and on top
     * Player One / Player Two - top left and right corner.
     * Player One - Mario / Player Two - Luigi
