@@ -3,11 +3,12 @@ var boardGame = [['','',''],['','',''],['','','']];
 var toggleBetweenPlayers = 0; //assign value for toggling;
 
 var combineAllArrays = [];
-var gameComplete = false; // valditor - used to check if game is complete.
+var gameComplete = false; // validator - used to check if game is complete.
 var creditCounter = 0;
 var timerTicket;
 var playerOneScore;
 var playerTwoScore;
+
 
 var creditedTo = ['SPECIAL THANKS TO....',
               'DANIEL TSUI (DT)',
@@ -16,6 +17,16 @@ var creditedTo = ['SPECIAL THANKS TO....',
               'AND....',
               'GOOGLE!',
               'barry™ PRODUCTION'];
+
+var audioLevelComplete = function(){
+  var audio = document.querySelector('.audio-level-complete');
+  audio.play();
+};
+
+var audioJump = function(){
+  var audio = document.querySelector('.audio-jump');
+  audio.play();
+};
 
 var credits = function(){
   document.querySelector('body p').innerHTML = creditedTo[creditCounter];
@@ -40,7 +51,9 @@ var selectedBox = function (row, column){
 
 };
 
-var endOfGame = function(){ // deletes page and creates new page
+var endOfGame = function(){ // deletes div inside of the body and creates new div
+  audioLevelComplete();
+
   document.querySelector("body div").remove();
   var newDiv = document.createElement('DIV');
   var newH1 = document.createElement('H1');
@@ -68,19 +81,12 @@ var endOfGame = function(){ // deletes page and creates new page
 var winner = function(winningPlayer){ // announce Winner
   gameComplete = true;
   if(winningPlayer === 0){
-
     document.querySelector("body h1").innerHTML = "PLAYER ONE WINS"
     setTimeout(endOfGame,1000);
-
-  };
-
-  if(winningPlayer === 1){
-
+  } else if(winningPlayer === 1){
     document.querySelector("body h1").innerHTML = "PLAYER TWO WINS";
     setTimeout(endOfGame,1000);
-
   };
-
 };
 
 var checkIfPlayerOneIsWinner = function(){
@@ -92,7 +98,7 @@ var checkIfPlayerOneIsWinner = function(){
     return; // used RETURN to exit the function without calling the next function in line checkIfPlayerTwoIsWinner
   };
   checkIfPlayerTwoIsWinner();
-}
+};
 
 
 var checkIfPlayerTwoIsWinner = function (){
@@ -101,8 +107,8 @@ var checkIfPlayerTwoIsWinner = function (){
     playerTwoScore =+ 1;
     localStorage.setItem('playerTwoScore',playerTwoScore);
     document.querySelector('.p2-scoreboard').innerHTML = playerTwoScore;
-    return;
-  }
+    return; // exits function if player two is winner and will NOT call next function.
+  };
   checkingIfTieGame();
 };
 
@@ -116,8 +122,8 @@ var checkWinner = function(score) {
      boardGame[0][0] + boardGame[1][1] + boardGame[2][2] === score ||
      boardGame[2][0] + boardGame[1][1] + boardGame[0][2] === score ){
      return true
-  }
-}
+  };
+};
 
 var checkingIfTieGame = function(){ // checking if tie game
   var array1 = boardGame[0];
@@ -177,8 +183,10 @@ var captureEvent = function(event){
   var x = event.target;
 
   if(x.src === '' && !gameComplete){ // if box is empty AND that it i NOT True. (if(!gameComplete) if game is NOT true keep doing this.
+        audioJump();
+
         if(toggleBetweenPlayers === 0){
-            x.src = 'Images/mario.gif';
+          x.src = 'Images/mario.gif';
         };
 
         if(toggleBetweenPlayers ===  1){

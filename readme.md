@@ -80,6 +80,7 @@ examples:
 
 ###### Friday 24/02/17
   * TRY implementing a working scoreboard.
+  * Added audio click event and end game. 
 
 
 ### UNRESOLVED ISSUES
