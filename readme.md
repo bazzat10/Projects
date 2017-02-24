@@ -80,7 +80,7 @@ examples:
 
 ###### Friday 24/02/17
   * TRY implementing a working scoreboard.
-  * Added audio click event and end game. 
+  * Added audio to click event and end game.
 
 
 ### UNRESOLVED ISSUES
@@ -92,7 +92,7 @@ examples:
 ### FUTURE PLANS
 * Implement the ability for players to select different characters.
 * A working scoreboard.
-* Sound effects.
+* More sound effects. 
 
 
 ### GAME RULES
