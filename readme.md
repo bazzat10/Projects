@@ -79,18 +79,19 @@ examples:
   * Bug Fixes - Player is now announced WINNER if they win on the last box. NO Longer show TIE GAME. Used *return* to immediately exit the function.
 
 ###### Friday 24/02/17
-
+  * TRY implementing a working scoreboard.
 
 
 ### UNRESOLVED ISSUES
-* In my initial plan - players would be able to select from a list of characters such as Toad / Mario / Luigi / Princess Peach.
 * Shorten code - DRYer. Make the code flow more efficient.
 * CSS Bugs!!!!
+* Scoreboard.
 
 
 ### FUTURE PLANS
-* Implement the ability for players to select different characters
-* Scoreboard
+* Implement the ability for players to select different characters.
+* A working scoreboard.
+* Sound effects.
 
 
 ### GAME RULES

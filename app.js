@@ -1,14 +1,13 @@
-console.log('JAVASCRIPT WORKING FOR PR0JECT 1 - TIC TAC TOE');
 var boardGame = [['','',''],['','',''],['','','']];
 
 var toggleBetweenPlayers = 0; //assign value for toggling;
 
 var combineAllArrays = [];
-var gameComplete = false; // whether or not game is still going
+var gameComplete = false; // valditor - used to check if game is complete.
 var creditCounter = 0;
 var timerTicket;
-var playerOneScore = 0;
-var playerTwoScore = 0;
+var playerOneScore;
+var playerTwoScore;
 
 var creditedTo = ['SPECIAL THANKS TO....',
               'DANIEL TSUI (DT)',
@@ -59,9 +58,10 @@ var endOfGame = function(){ // deletes page and creates new page
   setTimeout(creditsTimer, 500);
 
   document.querySelector('.play-again-btn').addEventListener('click', function(){
+    playerOneScore = localStorage.getItem('playerOneScore');
+    playerTwoScore = localStorage.getItem('playerTwoScore');
     location.reload();
   });
-
 };
 
 
@@ -86,8 +86,9 @@ var winner = function(winningPlayer){ // announce Winner
 var checkIfPlayerOneIsWinner = function(){
   if(checkWinner(6)){ // if statement calls function and check if it is true
     winner(0);
-    playerOneScore++;
+    playerOneScore =+ 1;
     document.querySelector('.p1-scoreboard').innerHTML = playerOneScore;
+    localStorage.setItem('playerOneScore', playerOneScore);
     return; // used RETURN to exit the function without calling the next function in line checkIfPlayerTwoIsWinner
   };
   checkIfPlayerTwoIsWinner();
@@ -97,7 +98,8 @@ var checkIfPlayerOneIsWinner = function(){
 var checkIfPlayerTwoIsWinner = function (){
   if (checkWinner(9)) { // if value 9 is passed through and if condition is true it will enter if statement.
     winner(1);
-    playerTwoScore++;
+    playerTwoScore =+ 1;
+    localStorage.setItem('playerTwoScore',playerTwoScore);
     document.querySelector('.p2-scoreboard').innerHTML = playerTwoScore;
     return;
   }
