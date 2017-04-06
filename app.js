@@ -59,6 +59,7 @@ var endOfGame = function(){ // deletes div inside of the body and creates new di
   var newH1 = document.createElement('H1');
   var newButton = document.createElement('BUTTON');
   var newParagraph = document.createElement('P');
+  // var body = document.querySelector('body');
   document.querySelector('body').appendChild(newDiv);
   document.querySelector('body div').className = 'end-game';
   document.querySelector('body div').appendChild(newH1);
@@ -113,6 +114,13 @@ var checkIfPlayerTwoIsWinner = function (){
 };
 
 var checkWinner = function(score) {
+  // data = [
+  //   [[0,0,0], [0,1,2]],
+  //   [[1,1,1], [0,1,2]]
+  // ]
+  // return data.some(function(coords) {
+  //   calcScore(coords) === score
+  // })
   if(boardGame[0][0] + boardGame[0][1] + boardGame[0][2] === score ||
      boardGame[1][0] + boardGame[1][1] + boardGame[1][2] === score ||
      boardGame[2][0] + boardGame[2][1] + boardGame[2][2] === score ||
@@ -124,6 +132,10 @@ var checkWinner = function(score) {
      return true
   };
 };
+
+var calcScore = function(x,y) {
+  return boardGame[x[0]][y[0]] + boardGame[x[1]][y[1]] + boardGame[x[2]][y[2]]
+}
 
 var checkingIfTieGame = function(){ // checking if tie game
   var array1 = boardGame[0];
