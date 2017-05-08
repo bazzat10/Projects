@@ -101,3 +101,7 @@ footer{
   position: absolute;
   top: 50%;
 }
+
+.heading {
+  display: center;
+}

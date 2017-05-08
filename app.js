@@ -9,7 +9,6 @@ var timerTicket;
 var playerOneScore;
 var playerTwoScore;
 
-
 var creditedTo = ['SPECIAL THANKS TO....',
               'DANIEL TSUI (DT)',
               'KASUN MALDENI',
